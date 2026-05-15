@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Boni!</title>
+  <style>
+    :root{--bg1:#ff8fb1;--bg2:#ffd166;--bg3:#8ecae6;--ink:#2b2d42;--card:rgba(255,255,255,.18);--glass:rgba(255,255,255,.28)}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);overflow-x:hidden;background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));background-size:300% 300%;animation:bgMove 14s ease infinite}
+    @keyframes bgMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .confetti span{position:fixed;top:-10vh;width:12px;height:18px;border-radius:3px;opacity:.9;animation:fall linear infinite;z-index:0}
+    @keyframes fall{to{transform:translateY(120vh) rotate(720deg)}}
+    .wrap{position:relative;z-index:1;min-height:100%;display:grid;place-items:center;padding:24px}
+    .card{width:min(980px,100%);background:var(--glass);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.35);border-radius:32px;box-shadow:0 20px 60px rgba(0,0,0,.18);overflow:hidden}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:0;align-items:center}
+    .left{padding:42px 36px 38px}
+    .badge{display:inline-block;background:#fff;color:#ff5d8f;padding:8px 14px;border-radius:999px;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,.08)}
+    h1{font-size:clamp(3rem,8vw,5.8rem);line-height:.95;margin:18px 0 14px;letter-spacing:-.04em;text-shadow:0 4px 0 rgba(255,255,255,.35)}
+    .subtitle{font-size:clamp(1.05rem,2vw,1.25rem);max-width:38ch;line-height:1.6}
+    .line{margin:22px 0 0;font-weight:700;font-size:1.1rem}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    button,a.btn{border:0;border-radius:18px;padding:14px 18px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:.2s transform,.2s box-shadow}
+    button:hover,a.btn:hover{transform:translateY(-2px);box-shadow:0 14px 24px rgba(0,0,0,.16)}
+    .primary{background:#ff4d6d;color:#fff}.secondary{background:#fff;color:#ff4d6d}
+    .right{padding:28px;display:grid;place-items:center;min-height:100%;background:linear-gradient(160deg,rgba(255,255,255,.22),rgba(255,255,255,.08))}
+    .cake{position:relative;width:min(340px,80vw);aspect-ratio:1/1;display:grid;place-items:center}
+    .plate{position:absolute;bottom:30px;width:90%;height:26px;background:rgba(255,255,255,.8);border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+    .cake-body{position:absolute;bottom:48px;width:72%;height:56%;background:linear-gradient(180deg,#ffcad4,#ff8fab);border-radius:24px 24px 18px 18px;box-shadow:inset 0 -10px 0 rgba(255,255,255,.18)}
+    .layer{position:absolute;left:50%;transform:translateX(-50%);border-radius:18px}
+    .layer.top{bottom:200px;width:58%;height:16%;background:linear-gradient(180deg,#ffd6a5,#ffb703)}
+    .layer.mid{bottom:120px;width:66%;height:19%;background:linear-gradient(180deg,#cdb4db,#bde0fe)}
+    .icing{position:absolute;left:50%;transform:translateX(-50%);bottom:222px;width:62%;height:50px;background:#fff;border-radius:50% 50% 18px 18px/70% 70% 18px 18px;box-shadow:0 8px 0 rgba(255,255,255,.35)}
+    .drip{position:absolute;top:28px;width:18px;height:38px;background:#fff;border-radius:0 0 999px 999px}
+    .d1{left:12%}.d2{left:32%}.d3{left:54%}.d4{left:74%}
+    .candle{position:absolute;bottom:292px;width:18px;height:72px;border-radius:10px;background:repeating-linear-gradient(90deg,#fff 0 10px,#ff5d8f 10px 20px)}
+    .c1{left:35%}.c2{left:48%}.c3{left:61%}
+    .flame{position:absolute;bottom:360px;width:24px;height:36px;background:radial-gradient(circle at 35% 30%,#fff6b7 0 30%,#ffb703 55%,#ff5d8f 100%);border-radius:50% 50% 50% 0;transform:rotate(-45deg);filter:drop-shadow(0 0 12px rgba(255,190,0,.85));animation:flicker .12s infinite alternate}
+    .f1{left:34.3%}.f2{left:47.3%}.f3{left:60.3%}
+    @keyframes flicker{from{transform:rotate(-45deg) scale(.96)}to{transform:rotate(-42deg) scale(1.04)}}
+    .balloons span{position:absolute;width:56px;height:72px;border-radius:50% 50% 45% 45%;box-shadow:inset -8px -12px 0 rgba(0,0,0,.08)}
+    .balloons span:after{content:"";position:absolute;left:50%;top:68px;width:2px;height:70px;background:rgba(255,255,255,.7)}
+    .b1{right:18px;top:20px;background:#ff7aa2}.b2{right:84px;top:52px;background:#ffd166}.b3{right:46px;top:130px;background:#8ecae6}
+    .quote{display:grid;gap:12px;padding:22px 36px 38px;background:rgba(255,255,255,.14);border-top:1px solid rgba(255,255,255,.25)}
+    .quote p{margin:0;font-size:1.05rem;line-height:1.7}.tiny{opacity:.85;font-size:.92rem}
+    .sparkle{position:absolute;font-size:22px;animation:spin 8s linear infinite;opacity:.85}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .s1{left:20px;top:16px}.s2{right:24px;top:18px}.s3{left:14px;bottom:18px}.s4{right:18px;bottom:20px}
+    @media (max-width:860px){.hero{grid-template-columns:1fr}.right{padding-top:0}.left{padding:34px 24px 26px}h1{font-size:clamp(2.6rem,14vw,4.4rem)}}
+  </style>
+</head>
+<body>
+  <div class="confetti" id="confetti"></div>
+  <div class="wrap">
+    <main class="card">
+      <section class="hero">
+        <div class="left">
+          <div class="badge">🎂 Debosmita’s Birthday 💖</div>
+          <h1>Happy Birthday, Boni!</h1>
+          <p class="subtitle">Happy birthday to my little sister, the one who made my childhood louder, brighter, and way more interesting.</p>
+          <p class="line">May your day be filled with joy, selfies, gifts, and snacks that mysteriously have no calories.</p>
+          <div class="buttons">
+            <button class="primary" id="surpriseBtn">Press for Surprise 🎉</button>
+            <a class="btn secondary" href="#message">See the message 💌</a>
+          </div>
+        </div>
+        <div class="right">
+          <div class="cake" aria-label="Birthday cake illustration">
+            <div class="sparkle s1">✨</div><div class="sparkle s2">🎈</div><div class="sparkle s3">💖</div><div class="sparkle s4">🌟</div>
+            <div class="balloons"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+            <div class="plate"></div>
+            <div class="cake-body"></div>
+            <div class="layer top"></div>
+            <div class="layer mid"></div>
+            <div class="icing"><span class="drip d1"></span><span class="drip d2"></span><span class="drip d3"></span><span class="drip d4"></span></div>
+            <div class="candle c1"></div><div class="candle c2"></div><div class="candle c3"></div>
+            <div class="flame f1"></div><div class="flame f2"></div><div class="flame f3"></div>
+          </div>
+        </div>
+      </section>
+      <section class="quote" id="message">
+        <p><strong>Dear Minu,</strong> you deserve a birthday as bright as your smile and as fun as your best dance moves. Keep being amazing, a little chaotic, and totally unforgettable.</p>
+        <p class="tiny">P.S. Cake is mandatory. Age is optional . Drama is allowed only if it comes with laughter.</p>
+      </section>
+    </main>
+  </div>
+  <script>
+    const confetti = document.getElementById('confetti');
+    const colors = ['#ff4d6d','#ffd166','#8ecae6','#cdb4db','#ffffff','#80ed99'];
+    for(let i=0;i<70;i++){
+      const s=document.createElement('span');
+      s.style.left=Math.random()*100+'vw';
+      s.style.animationDuration=(6+Math.random()*8)+'s';
+      s.style.animationDelay=(-Math.random()*12)+'s';
+      s.style.background=colors[i%colors.length];
+      s.style.transform='rotate('+(Math.random()*360)+'deg)';
+      s.style.opacity=.55+Math.random()*.45;
+      s.style.width=(8+Math.random()*10)+'px';
+      s.style.height=(10+Math.random()*14)+'px';
+      confetti.appendChild(s);
+    }
+    document.getElementById('surpriseBtn').addEventListener('click',()=>{
+      const words=['Best sis ever!','Queen energy only!','More cake, less stress!','Birthday sparkle activated!','Legendary sibling unlocked!'];
+      const msg=words[Math.floor(Math.random()*words.length)];
+      alert(msg);
+    });
+  </script>
+</body>
+</html>
